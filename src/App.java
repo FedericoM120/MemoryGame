@@ -70,8 +70,18 @@ public class App {
                     nullOrBlankCounter+= 1;
                 }
             }
+            String playAgain;
             if (nullOrBlankCounter == 0) {
                 i += 300;
+                System.out.println("You won! Game Over.");
+                System.out.println("Play again? Enter y for yes n for no");
+                playAgain = scanner.next();
+                if (playAgain.equals("y")) {
+                    appearance = new String[]{"null", "null", "null", "null", "null", "null", "null", "null"};
+                    i = 0;
+                } else {
+                    i+=20;
+                }
             }
             nullOrBlankCounter = 0;
         }
