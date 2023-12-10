@@ -14,17 +14,41 @@ public class App {
 
         int i = 0;
         while (i < 20) {
-            System.out.println("Enter an index: ");
-            int firstIndex = scanner.nextInt();
 
-            System.out.println("Enter second index");
-            int secondIndex = scanner.nextInt();
+            int firstIndex = 0;
+            boolean validFirstIndexChoice = false;
+
+            while (validFirstIndexChoice != true){
+                System.out.println("Enter first index: ");
+                firstIndex = scanner.nextInt();
+                System.out.println(firstIndex + " = " + actualChoices[firstIndex]);
+                if (appearance[firstIndex] != "null" && appearance[firstIndex] != " ") {
+                    System.out.println("This index has already been found. Please choose another index.");
+                } else {
+                    break;
+                }
+            }
+
+            boolean validSecondIndexChoice = false;
+            int secondIndex = 0;
+
+            while (validSecondIndexChoice != true){
+                System.out.println("Enter second index: ");
+                secondIndex = scanner.nextInt();
+                System.out.println(secondIndex + " = " + actualChoices[secondIndex]);
+                if (appearance[secondIndex] != "null" && appearance[secondIndex] != " ") {
+                    System.out.println("This index has already been found. Please choose another index.");
+                } else {
+                    break;
+                }
+            }
 
             while (firstIndex == secondIndex) {
-                System.out.println("Can't choose the same index for both choices");
-                System.out.println("Enter second index");
-                secondIndex = scanner.nextInt();
+                    System.out.println("Can't choose the same index for both choices");
+                    System.out.println("Enter second index");
+                    secondIndex = scanner.nextInt();
             }
+
             //if choices match then they need appear permanently
             if (actualChoices[firstIndex] == actualChoices[secondIndex]) {
                 appearance[firstIndex] = actualChoices[firstIndex];
