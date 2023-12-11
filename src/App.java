@@ -11,7 +11,12 @@ public class App {
 
         int[] indexesChosen = new int[]{10,10,10,10,10,10,10,10};
 
+        int breakForLoop = 0;
+
         for (int l = 0; l < actualChoices.length; l++){
+            if (breakForLoop == 8){
+                break;
+            }
             char memoryGameValue = (char)(r.nextInt(26) + 'A');
 
             //actualChoices[l] = memoryGameValue;
@@ -29,7 +34,7 @@ public class App {
             while (indexFound == false) {
                 // matchingLetterIndex is in the array of indexesChosen, then keep generating a number until its not in the array
                 for (int j = l; j < indexesChosen.length; j++){
-                    if (matchingLetterIndex == indexesChosen[j]) {
+                    if (indexesChosen[matchingLetterIndex] != 10) {
                         matchingLetterIndex = r.nextInt(8);
                         j = 0;
                     } else {
@@ -40,6 +45,8 @@ public class App {
                     }
                 }
             }
+            breakForLoop += 2;
+
         }
 
         String[] appearance = new String[]{"null", "null", "null", "null", "null", "null", "null", "null"};
