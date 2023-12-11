@@ -7,7 +7,7 @@ public class App {
         //String[] actualChoices = new String[]{"C", "D", "A", "B", "B", "D", "A", "C"};
 
         Random r = new Random();
-        char[] actualChoices = new char[8];
+        char[] actualChoices = new char[]{'!', '!','!', '!','!', '!','!', '!'};
 
         int[] indexesChosen = new int[]{10,10,10,10,10,10,10,10};
 
@@ -27,6 +27,26 @@ public class App {
                     break;
                 }
             }
+
+            boolean letterAlreadyUsed = false;
+            int exclamationCounter = 0;
+            while (letterAlreadyUsed == false){
+                for (int j = 0; j < actualChoices.length; j++) {
+                    if (actualChoices[j] == memoryGameValue) {
+                        memoryGameValue = (char)(r.nextInt(26) + 'A');
+                        letterAlreadyUsed = true;
+                        break;
+                    } else if (actualChoices[j] == '!') {
+                        exclamationCounter++;
+                        if (exclamationCounter == 8){
+                            letterAlreadyUsed = true;
+                            break;
+                        }
+                    }
+
+                }
+            }
+
             actualChoices[l] = memoryGameValue;
             indexesChosen[l] = l;
             int matchingLetterIndex = r.nextInt(8 - l) + l;
